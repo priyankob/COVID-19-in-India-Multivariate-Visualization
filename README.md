@@ -3,8 +3,7 @@
 
 **TASK2**
 Major dependencies on Package -
-Python 3
-Plotly express
+Python 3 & Plotly express
 
 Covid and International Arrival data preprocessing is not included - due to volume
 
