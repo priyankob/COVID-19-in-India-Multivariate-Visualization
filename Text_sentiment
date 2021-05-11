@@ -1,0 +1,92 @@
+/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
+import os
+#Importing the required modules for EDA and ETL
+import os
+import glob #glob is a tool to index and list multiple files for convenient reading
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.style as style
+import numpy as np
+
+import seaborn as sns
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+import tensorflow as tf
+import time 
+from wordcloud import WordCloud, STOPWORDS
+from IPython.core.display import display, HTML
+import plotly.graph_objects as go
+import re
+
+import nltk  
+nltk.download('stopwords') 
+from nltk.corpus import stopwords 
+from nltk.stem.porter import PorterStemmer 
+from collections import Counter
+from nltk.tokenize import TweetTokenizer 
+import cufflinks as cf
+
+
+# # Input
+
+# "Chandigarh", "Kochi", "Delhi", "Mumbal" - High
+# "Hyderabad", "Chennai", "Bangalore" - Mid
+# "Kolkata", "Jaipur", "Pune" - Low
+
+# In[2]:
+
+
+for dirname, _, filenames in os.walk(r'C:\Users\ixoye\Desktop\HKUST\Lectures MSc BDT\MSBD 5005\data_twitter_3'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
+
+
+# In[3]:
+
+
+style.use('Solarize_Light2')
+gl = glob.glob(r'C:\Users\ixoye\Desktop\HKUST\Lectures MSc BDT\MSBD 5005\data_twitter_3/*.csv')
+print('There are {} files total'.format(len(gl)))
+
+
+# In[4]:
+
+
+#Reading in and concatenating tweet data into a single dataframe
+li = [pd.read_csv(t) for t in gl]
+li = pd.concat(li)
+li = li.iloc[:,1:4]
+li.columns = ['time','content','location']
+
+li.info()
+
+
+# # Tokenization and cleaning
+
+# In[5]:
+
+
+twe = TweetTokenizer()
+#Filtering the data to two large scale indian Cities Chennai and Bangalore
+che = li[li['location'].isin(["Chandigarh", "Kochi", "Delhi", "Mumbal"])] 
+che.time =  pd.to_datetime(che.time)
+
+
+# In[6]:
+
+
+#Plotting the number of daily tweets over observation period by city
+vis1 = che[['time','location','content']].groupby(['time','location']).agg('count')
+vis1 = vis1.reset_index()
+plt.figure(figsize=(25,25))
+
+ax1 = sns.relplot(data=vis1,x='time',y='content',hue='location',kind='line',style='location')
+ax1.set_xticklabels( rotation=40, ha="right")
+ax1.fig.suptitle('Number of Daity Tweets by City')
+ax1.set_xlabels("Date")
+ax1.set_ylabels('Number of COVID-19 tweets')
