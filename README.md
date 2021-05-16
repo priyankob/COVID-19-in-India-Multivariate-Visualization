@@ -13,3 +13,5 @@ PCA and tSNE baseline with VBM.ipynb - Similar study - along with additional dat
 streamgraph process.ipynb - Data Processing for Stacked Area Chart , actual visualization done on "Flourish Studio"
 
 Related .csv files are in data/ - Please change the current folder accordingly
+
+**TASK3**
