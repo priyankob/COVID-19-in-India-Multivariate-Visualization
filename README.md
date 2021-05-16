@@ -1,9 +1,10 @@
 # MSBD5005_data_pirates
 
-## TASK1
+### TASK1
 Summarized vis about COVID-19 outbreak in India
 
-### Requirements
+#### Requirements
+- Python3
 - json
 - pandas
 - numpy
@@ -14,14 +15,15 @@ Summarized vis about COVID-19 outbreak in India
 - dash_bootstrap_components
 - dash.dependencies
 
-### Run Steps
+#### Run Steps
 1) go into TASK1 folder: `cd TASK1`
 2) run the dash app: `python3 dash_app.py` and you should see the visualization at `localhost:8050`
 
 
-**TASK2**
-Major dependencies on Package -
-Python 3 & Plotly express
+### TASK2
+#### Requirements
+- Python 3
+- Plotly express
 
 Covid and International Arrival data preprocessing is not included - due to volume
 
@@ -33,7 +35,7 @@ streamgraph process.ipynb - Data Processing for Stacked Area Chart , actual visu
 Related .csv files are in data/ - Please change the current folder accordingly
 
 
-**TASK3**
+### TASK3
 Text_sentiment - Python file is used for Text Sentiment analysis and related visualization
 
 Related .csv files are in data/ - Please change the current folder accordingly
