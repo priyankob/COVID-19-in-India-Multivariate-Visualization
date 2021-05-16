@@ -15,3 +15,6 @@ streamgraph process.ipynb - Data Processing for Stacked Area Chart , actual visu
 Related .csv files are in data/ - Please change the current folder accordingly
 
 **TASK3**
+Text_sentiment - Python file is used for Text Sentiment analysis and related visualization
+
+Related .csv files are in data/ - Please change the current folder accordingly
