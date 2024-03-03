@@ -1,5 +1,6 @@
 # MSBD5005_data_pirates
 
+The report is added for clarity - https://github.com/priyankob/COVID-19-in-India-Multivariate-Visualization/blob/main/MSBD5005%20Final%20Report.docx.pdf
 ### TASK1
 Summarized vis about COVID-19 outbreak in India
 
